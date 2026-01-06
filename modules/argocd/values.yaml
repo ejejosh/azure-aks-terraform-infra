@@ -1,0 +1,18 @@
+server:
+  service:
+    type: LoadBalancer
+    ports:
+      - name: http
+        port: 80
+        targetPort: 8080
+    annotations:
+      service.beta.kubernetes.io/azure-load-balancer-internal: "false" 
+  extraArgs:
+    - --insecure  
+
+configs:
+  params:
+    server.insecure: true  
+
+
+# TODO: Add TLS configuration
